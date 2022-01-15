@@ -4,7 +4,6 @@ from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
 
-
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
@@ -23,15 +22,14 @@ while game_is_on:
     car_manager.make_new_car()
     car_manager.move_cars()
 
-    # if player.distance(car_manager.all_cars) > 20:
-    #     car_manager.move_cars()
+    for car in car_manager.all_cars:
+        if player.distance(car) < 20:
+            game_is_on = False
+            scoreboard.game_over()
 
     if player.ycor() > 300:
         scoreboard.update_score()
         player.reset_player()
         car_manager.update_speed()
 
-    # if player.distance(car_manager.all_cars) < 20:
-    #     scoreboard.game_over()
-
-
+screen.exitonclick()

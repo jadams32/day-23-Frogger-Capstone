@@ -16,7 +16,7 @@ class Player(Turtle):
         self.reset_player()
 
     def move(self):
-        self.forward(30)
+        self.forward(20)
 
     def reset_player(self):
         self.goto(STARTING_POSITION)

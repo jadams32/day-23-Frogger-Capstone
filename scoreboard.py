@@ -33,3 +33,5 @@ class Scoreboard(Turtle):
         self.penup()
         self.goto(0, 0)
         self.write("Game Over!", move=False, align=ALIGNMENT, font=FONT)
+
+

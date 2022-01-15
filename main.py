@@ -8,16 +8,21 @@ from turtle import Screen
 from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
+from lives import Lives
 
 # Here the screen is initialized, size set, and animations turned off
 screen = Screen()
 screen.setup(width=600, height=600)
+screen.title("Frogger Replica")
+screen.bgcolor("grey")
 screen.tracer(0)
 
 # Initialize the instances from each of the classes from other files.
 scoreboard = Scoreboard()
 player = Player()
 car_manager = CarManager()
+lives_left = Lives()
+lives_left.create_turtles()
 
 # Listen to keystrokes from the up arrow on the keyboard and call the player move function when pressed.
 screen.listen()
@@ -25,6 +30,7 @@ screen.onkey(fun=player.move, key="Up")
 
 # While loop variable, used to determine when to exit loop
 game_is_on = True
+lives = 3
 
 # Main Game loop
 while game_is_on:
@@ -33,6 +39,7 @@ while game_is_on:
     # many cars to try and cross.
     time.sleep(0.1)
     screen.update()
+    lives_left.display_turtles()
 
     # Here we create the group of cars and start moving them across the screen.
     car_manager.make_new_car()
@@ -41,8 +48,11 @@ while game_is_on:
     # Detecting collision with any of the cars on the screen
     for car in car_manager.all_cars:
         if player.distance(car) < 20:
-            game_is_on = False
-            scoreboard.game_over()
+            lives -= 1
+            player.reset_player()
+            if lives <= 0:
+                scoreboard.game_over()
+                game_is_on = False
 
     # Detecting if the user has crossed the road successfully, then level up the game.
     if player.ycor() > 300:

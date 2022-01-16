@@ -5,7 +5,7 @@ class Lines(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.color("white")
+        self.color("yellow")
         self.hideturtle()
         self.pensize(5)
 

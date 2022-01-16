@@ -31,6 +31,7 @@ lines.draw_lines()
 # Listen to keystrokes from the up arrow on the keyboard and call the player move function when pressed.
 screen.listen()
 screen.onkey(fun=player.move, key="Up")
+screen.onkey(fun=player.down, key="Down")
 
 # While loop variable, used to determine when to exit loop
 game_is_on = True
@@ -41,7 +42,7 @@ while game_is_on:
 
     # This causes the loop to pause, and then update the screen. Giving a break so the user does not have too
     # many cars to try and cross.
-    time.sleep(0.1)
+    time.sleep(car_manager.move_speed)
     screen.update()
     lives_left.display_turtles(140)
 

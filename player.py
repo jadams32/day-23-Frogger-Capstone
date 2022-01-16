@@ -21,6 +21,9 @@ class Player(Turtle):
         """Moves the turtle forward."""
         self.forward(20)
 
+    def down(self):
+        self.back(20)
+
     def reset_player(self):
         """Resets the turtle to the starting position."""
         self.goto(STARTING_POSITION)

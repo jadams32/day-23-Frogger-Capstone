@@ -22,7 +22,7 @@ scoreboard = Scoreboard()
 player = Player()
 car_manager = CarManager()
 lives_left = Lives()
-lives_left.create_turtles()
+# lives_left.create_turtles()
 
 # Listen to keystrokes from the up arrow on the keyboard and call the player move function when pressed.
 screen.listen()
@@ -39,7 +39,7 @@ while game_is_on:
     # many cars to try and cross.
     time.sleep(0.1)
     screen.update()
-    lives_left.display_turtles()
+    lives_left.display_turtles(140)
 
     # Here we create the group of cars and start moving them across the screen.
     car_manager.make_new_car()
@@ -49,6 +49,7 @@ while game_is_on:
     for car in car_manager.all_cars:
         if player.distance(car) < 20:
             lives -= 1
+            lives_left.life_lost()
             player.reset_player()
             if lives <= 0:
                 scoreboard.game_over()

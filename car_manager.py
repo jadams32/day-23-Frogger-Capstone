@@ -16,8 +16,9 @@ class CarManager:
 
     def make_new_car(self):
         """Creates an individual car and stores it in a group(list)."""
-        random_chance = random.randint(1, 6)
-        random_y = random.randint(-250, 260)
+        random_chance = random.randint(1, 3)
+        y_locations = [-240, -200, -160, -120, -80, -40, 0, 40, 80, 120, 200, 240]
+        random_y = random.choice(y_locations)
         if random_chance == 2:
             new = Turtle("square")
             new.turtlesize(stretch_len=2)

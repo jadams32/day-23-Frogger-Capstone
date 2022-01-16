@@ -9,6 +9,7 @@ from player import Player
 from car_manager import CarManager
 from scoreboard import Scoreboard
 from lives import Lives
+from lines import Lines
 
 # Here the screen is initialized, size set, and animations turned off
 screen = Screen()
@@ -22,7 +23,10 @@ scoreboard = Scoreboard()
 player = Player()
 car_manager = CarManager()
 lives_left = Lives()
-# lives_left.create_turtles()
+lines = Lines()
+
+lines.draw_lines()
+
 
 # Listen to keystrokes from the up arrow on the keyboard and call the player move function when pressed.
 screen.listen()

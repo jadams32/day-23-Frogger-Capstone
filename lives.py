@@ -16,7 +16,6 @@ class Lives:
         self.turtles_left.append(new_life)
 
     def display_turtles(self, x_cord):
-        self.turtles_left.clear()
         for num in range(self.lives_left):
             self.create_turtles(x_cord)
             x_cord += 40

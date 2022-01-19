@@ -25,6 +25,7 @@ car_manager = CarManager()
 lives_left = Lives()
 lines = Lines()
 
+# Drawing the lines on screen
 lines.draw_lines()
 
 
@@ -52,7 +53,7 @@ while game_is_on:
 
     # Detecting collision with any of the cars on the screen
     for car in car_manager.all_cars:
-        if player.distance(car) < 20:
+        if player.distance(car) <= 20:
             lives -= 1
             lives_left.life_lost()
             player.reset_player()

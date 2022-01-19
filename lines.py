@@ -1,3 +1,6 @@
+# This file will make our game appear more realistic by drawing lines on screen to emulate a highway.
+
+# Importing the files needed.
 from turtle import Turtle
 
 
@@ -5,11 +8,12 @@ class Lines(Turtle):
 
     def __init__(self):
         super().__init__()
-        self.color("yellow")
+        self.color("white")
         self.hideturtle()
         self.pensize(5)
 
     def draw_lines(self):
+        """Draws the lines on the screen to simulate a highway"""
         y_loc = -260
         loop = 1
         while loop < 15:

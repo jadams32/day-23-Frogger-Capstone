@@ -22,7 +22,9 @@ class Player(Turtle):
         self.forward(20)
 
     def down(self):
-        self.back(20)
+        """Moves the turtle down, if not at the bottom of the screen."""
+        if self.ycor() > -280:
+            self.back(20)
 
     def reset_player(self):
         """Resets the turtle to the starting position."""

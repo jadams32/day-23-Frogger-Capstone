@@ -26,5 +26,7 @@ class Lives:
     def life_lost(self):
         """When the user loses a life, decrement the lives counter."""
         self.lives_left -= 1
+        for turtle in self.turtles_left:
+            turtle.goto(1000, 1000)
         self.turtles_left.clear()
 
